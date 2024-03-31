@@ -1,4 +1,4 @@
-<?php include_once("./includes/header-main.php");?>
+<?php include_once("./includes/header-admin.php");?>
 
     <main>
         <h1>BIENVENIDO, $USER</h1>

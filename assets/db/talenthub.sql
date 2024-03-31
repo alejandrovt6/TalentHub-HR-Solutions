@@ -5,12 +5,12 @@ USE talenthub;
 -- Tabla roles
 CREATE TABLE roles (
     id_rol INT PRIMARY KEY,
-    descripcion VARCHAR(255)
+    nombre_rol VARCHAR(255)
 );
 
 -- Tabla empleados
 CREATE TABLE empleados (
-    matricula_empleado INT PRIMARY KEY,
+    DNI VARCHAR(11) PRIMARY KEY,
     contraseña VARCHAR(255),
     email VARCHAR(255),
     nombre VARCHAR(255),

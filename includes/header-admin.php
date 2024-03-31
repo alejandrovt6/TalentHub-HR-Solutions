@@ -11,9 +11,9 @@
         <div class="logo">Talent Hub. HR Solutions</div>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Empleados</a></li>
-                <li><a href="#">Roles</a></li>
+                <li><a href="./admin.php">Inicio</a></li>
+                <li><a href="./modules/employees.php">Empleados</a></li>
+                <li><a href="./modules/roles.php">Roles</a></li>
                 <li><a href="#">Cerrar sesión</a></li>
             </ul>
         </nav>

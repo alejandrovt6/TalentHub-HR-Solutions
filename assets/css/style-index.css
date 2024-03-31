@@ -101,6 +101,9 @@ button:hover {
     background-color: var(--dark-blue);
 }
 
+/******************
+FOOTER
+******************/
 footer {
     position: fixed;
     bottom: 0;

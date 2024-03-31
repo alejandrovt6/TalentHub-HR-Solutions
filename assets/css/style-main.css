@@ -60,6 +60,110 @@ main {
     padding: 20px
 }
 
+
+/******************
+COLORS
+******************/
+:root {
+    --blue: #007bff;
+    --dark-blue: #0056b3;
+    --grey: #BCD1D2;
+    --black: black;
+    --white: white;
+}
+
+/******************
+GENERAL
+******************/
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/******************
+MAIN
+******************/
+header {
+    background-color: var(--grey);
+    color: var(--black);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    margin-top: 20px;
+    border: 1px solid var(--grey);
+    padding: 20px;
+}
+
+
+/******************
+TABLE
+******************/
+.employee-table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.role-table {
+    border-collapse: collapse;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.employee-table th, .role-table th {
+    background-color: var(--blue);
+}
+
+.employee-table th, .employee-table td,
+.role-table th, .role-table td {
+    border-bottom: 1px solid var(--grey); 
+    padding: 8px 0px;
+    text-align: left;
+}
+
+.employee-table tr:hover,
+.role-table tr:hover {
+    background-color: var(--grey); 
+}
+
+.employee-table th, .employee-table td,
+.role-table th, .role-table td {
+    padding: 8px;
+    text-align: left;
+}
+
+/******************
+FOOTER
+******************/
 footer {
     position: fixed;
     bottom: 0;
