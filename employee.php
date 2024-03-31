@@ -1,4 +1,4 @@
-<?php include_once("./includes/header-main.php");?>
+<?php include_once("./includes/header-employee.php");?>
 
     <main>
         <h1>BIENVENIDO, $USER</h1>
@@ -8,8 +8,3 @@
     </main>
 
 <?php include_once("./includes/footer.php");?>
-
-
-
-
-
