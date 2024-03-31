@@ -8,6 +8,7 @@ COLORS
     --black: black;
     --white: white;
 }
+
 /******************
 GENERAL
 ******************/
@@ -18,6 +19,7 @@ GENERAL
 
 body {
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +31,8 @@ body {
 /******************
 MAIN
 ******************/
+
+
 .container {
     max-width: 400px;
     width: 100%;

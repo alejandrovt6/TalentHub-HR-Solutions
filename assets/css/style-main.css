@@ -1,0 +1,71 @@
+/******************
+COLORS
+******************/
+:root {
+    --blue: #007bff;
+    --dark-blue: #0056b3;
+    --grey: #BCD1D2;
+    --black: black;
+    --white: white;
+}
+
+/******************
+GENERAL
+******************/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/******************
+MAIN
+******************/
+header {
+    background-color: var(--grey);
+    color: var(--black);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    margin-top: 20px;
+    border: 1px solid var(--grey);
+    padding: 20px
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--grey);
+    text-align: center;
+    padding: 5px 0;
+}
