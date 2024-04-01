@@ -1,4 +1,4 @@
-<?php include_once("./includes/header-employee.php");?>
+<?php include_once("../includes/header-employee.php");?>
 
     <main>
         <h1>BIENVENIDO, $USER</h1>
@@ -7,4 +7,4 @@
         </div>
     </main>
 
-<?php include_once("./includes/footer.php");?>
+<?php include_once("../includes/footer.php");?>
