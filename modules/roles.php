@@ -11,19 +11,19 @@
                     <th>Id rol</th>
                     <th>Nombre</th>
                     <th>Nº de empleados</th>
-                    <th>Descargar</th>
+                    <th>Descargar listado</th>
                 </tr>
             </thead>
                 <tr>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
+                    <td>1</td>
+                    <td>RRHH</td>
+                    <td>1</td>
                     <td>prueba</td>
                 </tr>
                 <tr>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
+                    <td>2</td>
+                    <td>Técnico</td>
+                    <td>5</td>
                     <td>prueba</td>
                 </tr>
         </table>
