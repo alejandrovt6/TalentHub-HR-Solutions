@@ -17,7 +17,7 @@ CREATE TABLE empleados (
     apellidos VARCHAR(255),
     imagen VARCHAR(255),
     id_rol INT,
-    edad INT,
+    fecha_nacimiento DATE,
     fecha_inicio DATE,
     antiguedad INT,
     sueldo DECIMAL(10, 2),

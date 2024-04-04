@@ -4,6 +4,7 @@
 
 <main>
     <h1>Lista de empleados</h1>
+    <a href="add-employee.php" class="btn add-employee-btn">Añadir empleado</a>
     <div class="container">
         <table class="employee-table">
             <thead>

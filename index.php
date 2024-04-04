@@ -13,7 +13,7 @@
             <h1 class="title">Talent Hub HR Solutions</h1>
         </div> -->
         <main class="container">
-            <form class="login-form">
+            <form action="" class="login-form">
                 <h1>Bienvenido a Talent Hub</h1>
                 <h2>Login</h2>
                 <div class="form-group">

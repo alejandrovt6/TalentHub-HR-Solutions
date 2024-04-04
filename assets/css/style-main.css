@@ -2,7 +2,7 @@
 COLORS
 ******************/
 :root {
-    --blue: #007bff;
+    --blue: #00bfff;
     --dark-blue: #0056b3;
     --grey: #BCD1D2;
     --black: black;
@@ -60,67 +60,16 @@ main {
     padding: 20px
 }
 
-
 /******************
-COLORS
+FOOTER
 ******************/
-:root {
-    --blue: #007bff;
-    --dark-blue: #0056b3;
-    --grey: #BCD1D2;
-    --black: black;
-    --white: white;
-}
-
-/******************
-GENERAL
-******************/
-body {
-    margin: 0;
-    padding: 0;
-}
-
-/******************
-MAIN
-******************/
-header {
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: var(--grey);
-    color: var(--black);
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: var(--black);
-    text-decoration: none;
-}
-
-main {
-    padding: 20px;
     text-align: center;
-}
-
-.container {
-    margin-top: 20px;
-    border: 1px solid var(--grey);
-    padding: 20px;
+    padding: 5px 0;
 }
 
 
@@ -162,13 +111,69 @@ TABLE
 }
 
 /******************
-FOOTER
+BUTTONS
 ******************/
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--grey);
-    text-align: center;
-    padding: 5px 0;
+.btn {
+    margin: 10px 0 20px 0;
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--black)
 }
+
+.add-employee-btn {
+    background-color: var(--blue);
+}
+
+.add-employee-btn:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+
+/******************
+FORMS
+******************/
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    /* display: block; */
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,
+input[type="number"],
+input[type="date"],
+input[type="file"] {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+select {
+    height: 40px;
+}
+
+/* button[type="submit"] {
+    background-color: var(--blue);
+    color: var(--black);
+    border: none;
+    border-radius: 20px;
+    padding: 12px 20px;
+    margin: 15px 0 0 100px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+} */
