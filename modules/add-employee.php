@@ -1,7 +1,7 @@
 <?php include_once("../includes/header-admin.php"); ?>
 
 <main>
-    <h1>Añadir Nuevo Empleado</h1>
+    <h1>Añadir nuevo empleado</h1>
     <div class="container">
         <form action="../actions/new-employee.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label for="id_rol">Rol:</label>
-                <select id="id_rol" name="id_rol" required>
+                <select id="id_rol" name="id_rol" required> 
                     <option value="1">Rol 1</option>
                     <option value="2">Rol 2</option>
                 </select>

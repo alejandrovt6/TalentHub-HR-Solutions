@@ -4,7 +4,7 @@ USE talenthub;
 
 -- Tabla roles
 CREATE TABLE roles (
-    id_rol INT PRIMARY KEY,
+    id_rol INT AUTO_INCREMENT PRIMARY KEY,
     nombre_rol VARCHAR(255)
 );
 

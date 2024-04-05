@@ -30,7 +30,7 @@ if(isset($_POST)) {
         $dni_valido = true;
     } else {
         $dni_valido = false;
-        $errors['dni'] = 'El DNI debe tener 9 caracteres y el formato correcto.';
+        $errors['dni'] = 'El DNI debe tener el formato correcto.';
     }
 
     // Contraseña
