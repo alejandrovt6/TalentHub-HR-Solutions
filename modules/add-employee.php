@@ -31,6 +31,7 @@
             <div class="form-group">
                 <label for="id_rol">Rol:</label>
                 <select id="id_rol" name="id_rol" required> 
+                    <!-- CAMBIAR -->
                     <option value="1">Rol 1</option>
                     <option value="2">Rol 2</option>
                 </select>
