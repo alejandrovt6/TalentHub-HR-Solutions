@@ -26,19 +26,33 @@
                                 echo '<th>Nombre</th>';
                                 echo '<th>Nº de empleados</th>';
                                 echo '<th>Descargar listado</th>';
+
                             echo '</tr>';
                         echo '</thead>';
 
                         echo '<tbody>';
                         // Iterar sobre los resultados y mostrar cada rol en una fila de la tabla
                         while ($row = mysqli_fetch_assoc($result)) {
+                            // Consulta SQL para contar el número de empleados asociados a este rol
+                            $rol_id = $row['id_rol'];
+                            $count_query = "SELECT COUNT(*) AS count FROM empleados WHERE id_rol = $rol_id";
+                            $count_result = mysqli_query($db, $count_query);
+
+                            if ($count_result && mysqli_num_rows($count_result) > 0) {
+                                $count_row = mysqli_fetch_assoc($count_result);
+                                $num_empleados = $count_row['count'];
+                            } else {
+                                $num_empleados = 0;
+                            }
+
                             echo '<tr>';
                                 echo '<td>' . $row['id_rol'] . '</td>';
                                 echo '<td>' . $row['nombre_rol'] . '</td>';
-                                echo '<td>N/A</td>'; // Número de empleados asociados a cada rol (FALTA)
+                                echo '<td>' . $num_empleados . '</td>'; 
                                 echo '<td>prueba</td>'; // (FALTA)
                             echo '</tr>';
-                        }   
+                        }
+
                         echo '</tbody>';
                         
                     echo '</table>';

@@ -8,12 +8,8 @@
 </head>
 <body>
     <div class="login-container">
-        <!-- <div class="login-title">
-            <img class="logo" src="" alt="">
-            <h1 class="title">Talent Hub HR Solutions</h1>
-        </div> -->
         <main class="container">
-            <form action="" class="login-form">
+            <form action="./actions/login.php" method="POST" class="login-form">
                 <h1>Bienvenido a Talent Hub</h1>
                 <h2>Login</h2>
                 <div class="form-group">
@@ -21,14 +17,13 @@
                     <input type="text" id="dni" name="dni" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" name="contraseña" required>
                 </div>
                 <button type="submit">Login</button>
                 <a href=""><p>¿Olvidaste la contraseña?</p></a>
             </form>
         </main>
     </div>
-
-<?php include_once("./includes/footer.php");?>
-
+</body>
+</html>
