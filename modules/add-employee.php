@@ -1,3 +1,19 @@
+<?php
+    require_once '../includes/connection.php';
+
+    // Verificar si el empleado está autenticado
+    if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
+        header("Location: ../index.php"); // Si no está autenticado
+        exit();
+    }
+
+    // Verificar si el usuario tiene el rol adecuado
+    if ($_SESSION['rol_id'] != 1) {
+        header("Location: ../index.php"); // Si no tiene el rol adecuado
+        exit();
+    }
+?>
+
 <?php include_once("../includes/header-admin.php"); ?>
 
 <main>

@@ -6,8 +6,8 @@ if(isset($_POST['dni'], $_POST['contraseña'])) {
     $dni = trim($_POST['dni']);
     $contraseña = $_POST['contraseña'];
 
-    // Comprobar usuario
-    $sql = "SELECT * FROM empleados WHERE dni = '$dni'";
+    // Consulta para comprobar usuario
+    $sql = "SELECT * FROM empleados WHERE DNI = '$dni'";
     $login = mysqli_query($db, $sql);
     
     if($login && mysqli_num_rows($login) == 1) {
@@ -15,15 +15,8 @@ if(isset($_POST['dni'], $_POST['contraseña'])) {
         // Verificar la contraseña
         if (password_verify($contraseña, $empleado['contraseña'])) {
             session_start();
-            $_SESSION['authenticated'] = true; // Indicar que el usuario está autenticado
-            $_SESSION['dni'] = $empleado['dni'];
-            $_SESSION['rol_id'] = $empleado['id_rol']; // Guardar el ID de rol en la sesión
-            // Redirigir según el rol
-            if ($empleado['id_rol'] == 1) {
-                header("Location: ../modules/admin.php");
-            } else {
-                header("Location: ../modules/employee.php");
-            }
+            $_SESSION['user_dni'] = $empleado['DNI']; // Guardar el DNI del empleado en la sesión
+            header("Location: ../modules/admin.php"); 
             exit(); 
         } else {
             echo "Contraseña incorrecta";

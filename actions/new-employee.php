@@ -116,7 +116,7 @@ if(isset($_POST)) {
     // Validar datos del formulario y comprobar si hay errores
     if (count($errors) == 0) {
         // Consulta SQL
-        $sql = "INSERT INTO empleados (DNI, contraseña, email, nombre, apellidos, imagen, id_rol, fecha_nacimiento, fecha_inicio, sueldo) VALUES ('$dni', '$contraseña', '$email', '$nombre', '$apellidos', '$imagen', '$id_rol', '$fecha_nacimiento', '$fecha_inicio', '$sueldo')";
+        $sql = "INSERT INTO empleados (DNI, contraseña, email, nombre, apellidos, imagen, id_rol, fecha_nacimiento, fecha_inicio, sueldo) VALUES ('$dni', '$contraseña_encriptada', '$email', '$nombre', '$apellidos', '$imagen', '$id_rol', '$fecha_nacimiento', '$fecha_inicio', '$sueldo')";
 
         // Ejecutar la consulta SQL para insertar el usuario
         $save = mysqli_query($db, $sql);
@@ -124,7 +124,7 @@ if(isset($_POST)) {
         // Verificar si se guardó correctamente el usuario
         if ($save) {
             $_SESSION['completed'] = '¡Empleado registrado exitosamente!';
-            header("Location: employee-success.php"); // Redirigirá cuando se cree correctamente el usuario
+            header("Location: employees.php"); // Redirigirá cuando se cree correctamente el usuario
             exit();
         } else {
             $_SESSION['errors']['general'] = 'Error al registrar el empleado. Por favor, inténtalo de nuevo.';

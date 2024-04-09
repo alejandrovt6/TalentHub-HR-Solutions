@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="../assets/css/style-main.css"> 
 
-<main>
+<main class="main-employees">
     <h1>Lista de empleados</h1>
     <a href="add-employee.php" class="btn add-employee-btn">Añadir empleado</a>
     <div class="container">

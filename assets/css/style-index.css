@@ -2,7 +2,7 @@
 COLORS
 ******************/
 :root {
-    --blue: #007bff;
+    --blue: #00bfff;
     --dark-blue: #0056b3;
     --grey: #BCD1D2;
     --black: black;
@@ -90,7 +90,7 @@ button {
     width: 100%;
     padding: 10px;
     background-color: var(--blue);
-    color: var(--white);
+    color: var(--black);
     border: none;
     border-radius: 4px;
     cursor: pointer;
