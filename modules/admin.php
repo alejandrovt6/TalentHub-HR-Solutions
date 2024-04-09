@@ -1,6 +1,5 @@
 <?php
     require_once '../includes/connection.php';
-
     // Verificar si el empleado está autenticado
     if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
         header("Location: ../index.php"); // Si no está autenticado

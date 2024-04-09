@@ -13,7 +13,7 @@
             <ul>
                 <li><a href="../modules/employee.php">Inicio</a></li>
                 <li><a href="../modules/data.php">Mis datos</a></li>
-                <li><a href="../index.php">Cerrar sesión</a></li>
+                <li><a href="../actions/logout.php">Cerrar sesión</a></li>
             </ul>
         </nav>
     </header>
