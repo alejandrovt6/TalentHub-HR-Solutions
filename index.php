@@ -16,7 +16,7 @@
             <!-- <form action="./actions/login.php" method="POST" class="login-form"> -->
             <form action="./actions/login.php" method="POST" class="login-form">
                 <h1>Bienvenido a Talent Hub</h1>
-                <h2>Login</h2>
+                <!-- <h2>Login</h2> -->
                 <div class="form-group">
                     <label for="dni">DNI empleado:</label>
                     <input type="text" id="dni" name="dni" required>

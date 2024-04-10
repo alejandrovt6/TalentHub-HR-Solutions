@@ -36,7 +36,7 @@ if(isset($_POST)) {
         // Verificar si se guardó correctamente el rol
         if ($save) {
             $_SESSION['completed'] = 'Rol registrado exitosamente!';
-            // header("Location: employee-success.php"); // Redirigirá cuando se cree correctamente el rol
+            header("Location: ../modules/roles.php"); // Redirigirá cuando se cree correctamente el rol
             exit();
         } else {
             $_SESSION['errors']['general'] = 'Error al registrar el rol. Por favor, inténtalo de nuevo.';

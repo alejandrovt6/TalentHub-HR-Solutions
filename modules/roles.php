@@ -22,7 +22,7 @@
 
                         echo '<thead>';
                             echo '<tr>';
-                                echo '<th>Id rol</th>';
+                                // echo '<th>Id rol</th>';
                                 echo '<th>Nombre</th>';
                                 echo '<th>Nº de empleados</th>';
                                 echo '<th>Descargar listado</th>';
@@ -46,7 +46,7 @@
                             }
 
                             echo '<tr>';
-                                echo '<td>' . $row['id_rol'] . '</td>';
+                                // echo '<td>' . $row['id_rol'] . '</td>';
                                 echo '<td>' . $row['nombre_rol'] . '</td>';
                                 echo '<td>' . $num_empleados . '</td>'; 
                                 echo '<td>prueba</td>'; // (FALTA)

@@ -19,7 +19,6 @@ CREATE TABLE empleados (
     id_rol INT,
     fecha_nacimiento DATE,
     fecha_inicio DATE,
-    antiguedad INT,
     sueldo DECIMAL(10, 2),
     FOREIGN KEY (id_rol) REFERENCES roles(id_rol)
 );

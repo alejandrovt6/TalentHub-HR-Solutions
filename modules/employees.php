@@ -30,7 +30,7 @@
                             echo '<th>Fecha inicio</th>';
                             echo '<th>Sueldo</th>';
                             echo '<th>Informe</th>';
-                            echo '<th>Administrar</th>'; // EDITAR Y ELIMINAR (FALTA)
+                            echo '<th>Editar</th>';
                         echo '</tr>';
                     echo '</thead>';
                 echo '<tbody>';
@@ -38,7 +38,7 @@
                 // Iterar sobre los resultados y mostrar empleados
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<tr>';
-                        echo '<td>' . $row['imagen'] . '</td>'; // Imagen (FALTA)
+                        echo '<td><img src="' . $row['imagen'] . '" alt="Imagen de empleado"></td>';
                         echo '<td>' . $row['dni'] . '</td>';
                         echo '<td>' . $row['nombre'] . '</td>';
                         echo '<td>' . $row['apellidos'] . '</td>';
@@ -54,7 +54,7 @@
                         echo '<td>' . $row['fecha_inicio'] . '</td>';
                         echo '<td>' . $row['sueldo'] . '</td>';
                         echo '<td>Descargar</td>'; // FALTA
-                        echo '<td>Editar - Eliminar</td>'; // FALTA
+                        echo '<td>Editar - Eliminar</td>'; 
                     echo '</tr>';
                 }
 

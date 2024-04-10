@@ -124,7 +124,7 @@ if(isset($_POST)) {
         // Verificar si se guardó correctamente el usuario
         if ($save) {
             $_SESSION['completed'] = '¡Empleado registrado exitosamente!';
-            header("Location: employees.php"); // Redirigirá cuando se cree correctamente el usuario
+            header("Location: ../modules/employees.php"); // Redirigirá cuando se cree correctamente el usuario
             exit();
         } else {
             $_SESSION['errors']['general'] = 'Error al registrar el empleado. Por favor, inténtalo de nuevo.';

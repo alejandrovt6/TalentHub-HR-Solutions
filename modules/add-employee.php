@@ -46,9 +46,22 @@
             <div class="form-group">
                 <label for="id_rol">Rol:</label>
                 <select id="id_rol" name="id_rol" required> 
-                    <!-- CAMBIAR -->
-                    <option value="1">Rol 1</option>
-                    <option value="2">Rol 2</option>
+                    <?php
+                        // require_once '../includes/connection.php';
+
+                        // Roles disponibles
+                        $query = "SELECT id_rol, nombre_rol FROM roles";
+                        $result = mysqli_query($db, $query);
+
+                        // Verificar si hay resultados e iterar
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value=\"{$row['id_rol']}\">{$row['nombre_rol']}</option>";
+                            }
+                        } else {
+                            echo "<option value=\"\">No hay roles disponibles</option>";
+                        }
+                    ?>
                 </select>
             </div>
             <div class="form-group">
@@ -59,10 +72,6 @@
                 <label for="fecha_inicio">Fecha de inicio:</label>
                 <input type="date" id="fecha_inicio" name="fecha_inicio" required>
             </div>
-            <!-- <div class="form-group">
-                <label for="antiguedad">Antigüedad:</label>
-                <input type="number" id="antiguedad" name="antiguedad" required>
-            </div> -->
             <div class="form-group">
                 <label for="sueldo">Sueldo:</label>
                 <input type="number" id="sueldo" name="sueldo" step="0.01" required>
