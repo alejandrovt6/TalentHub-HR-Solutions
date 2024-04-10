@@ -26,6 +26,7 @@
                                 echo '<th>Nombre</th>';
                                 echo '<th>Nº de empleados</th>';
                                 echo '<th>Descargar listado</th>';
+                                echo '<th colspan="2">Administrar</th>';
 
                             echo '</tr>';
                         echo '</thead>';
@@ -49,7 +50,9 @@
                                 // echo '<td>' . $row['id_rol'] . '</td>';
                                 echo '<td>' . $row['nombre_rol'] . '</td>';
                                 echo '<td>' . $num_empleados . '</td>'; 
-                                echo '<td>prueba</td>'; // (FALTA)
+                                echo '<td><a href="#" class="btn-table btn-download">Descargar</a></td>';
+                                echo '<td><a href="#" class="btn-table btn-edit">Editar</a></td>';
+                                echo '<td><a href="#" class="btn-table btn-delete">Eliminar</a></td>';
                             echo '</tr>';
                         }
 

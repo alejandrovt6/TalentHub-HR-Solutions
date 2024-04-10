@@ -21,7 +21,7 @@
                 echo '<table class="employee-table">';
                     echo '<thead>';
                         echo '<tr>';
-                            echo '<th>Imagen</th>';
+                            // echo '<th>Imagen</th>';
                             echo '<th>DNI</th>';
                             echo '<th>Nombre</th>';
                             echo '<th>Apellidos</th>';
@@ -30,7 +30,8 @@
                             echo '<th>Fecha inicio</th>';
                             echo '<th>Sueldo</th>';
                             echo '<th>Informe</th>';
-                            echo '<th>Editar</th>';
+                            echo '<th colspan="2">Administrar</th>';
+                            // echo '<th>Eliminar</th>';
                         echo '</tr>';
                     echo '</thead>';
                 echo '<tbody>';
@@ -38,7 +39,7 @@
                 // Iterar sobre los resultados y mostrar empleados
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<tr>';
-                        echo '<td><img src="' . $row['imagen'] . '" alt="Imagen de empleado"></td>';
+                        // echo '<td><img src="' . $row['imagen'] . '" alt="Imagen de empleado"></td>';
                         echo '<td>' . $row['dni'] . '</td>';
                         echo '<td>' . $row['nombre'] . '</td>';
                         echo '<td>' . $row['apellidos'] . '</td>';
@@ -52,9 +53,10 @@
 
                         echo '<td>' . $rol_nombre . '</td>';
                         echo '<td>' . $row['fecha_inicio'] . '</td>';
-                        echo '<td>' . $row['sueldo'] . '</td>';
-                        echo '<td>Descargar</td>'; // FALTA
-                        echo '<td>Editar - Eliminar</td>'; 
+                        echo '<td>' . number_format($row['sueldo'], 0, ',','.') . '</td>';
+                        echo '<td><a href="#" class="btn-table btn-download">Descargar</a></td>';
+                        echo '<td><a href="../actions/edit-employee.php?dni=' . $row['dni'] . '" class="btn-table btn-edit">Editar</a></td>';
+                        echo '<td><a href="#" class="btn-table btn-delete">Eliminar</a></td>';
                     echo '</tr>';
                 }
 

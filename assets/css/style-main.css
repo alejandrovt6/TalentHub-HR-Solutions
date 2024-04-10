@@ -8,6 +8,8 @@ COLORS
     --white-grey: #F0F0F0;
     --black: black;
     --white: white;
+    --red: #FF9999;
+    --green: #99FF99;
 }
 
 /******************
@@ -133,6 +135,24 @@ BUTTONS
     color: var(--white);
 }
 
+.btn-table {
+    text-decoration: none;
+    color: var(--black);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.btn-edit {
+    background-color: var(--green);
+}
+
+.btn-delete {
+    background-color: var(--red);
+}
+
+.btn-download {
+    background-color: var(--blue);
+}
 
 /******************
 FORMS

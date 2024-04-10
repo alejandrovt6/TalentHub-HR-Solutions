@@ -39,10 +39,10 @@
                 <label for="apellidos">Apellidos:</label>
                 <input type="text" id="apellidos" name="apellidos" required>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="imagen">Imagen:</label>
                 <input type="file" id="imagen" name="imagen" accept="image/*" required>
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="id_rol">Rol:</label>
                 <select id="id_rol" name="id_rol" required> 
@@ -74,7 +74,7 @@
             </div>
             <div class="form-group">
                 <label for="sueldo">Sueldo:</label>
-                <input type="number" id="sueldo" name="sueldo" step="0.01" required>
+                <input type="number" id="sueldo" name="sueldo" required>
             </div>
             <button class="btn add-employee-btn" type="submit">Añadir Empleado</button>
         </form>
