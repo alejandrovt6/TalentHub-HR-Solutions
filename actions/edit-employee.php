@@ -45,7 +45,7 @@
                 $nombre = $empleado['nombre'];
                 $apellidos = $empleado['apellidos'];
                 $id_rol = $empleado['id_rol'];
-                // TODO: imagen
+                //$imagen = $imagen['imagen'];
                 $fecha_nacimiento = $empleado['fecha_nacimiento'];
                 $fecha_inicio = $empleado['fecha_inicio'];
                 $sueldo = $empleado['sueldo'];
@@ -82,13 +82,13 @@
             </div>
             <div class="form-group">
                 <label for="imagen">Imagen:</label>
-                <input type="file" id="imagen" name="imagen" accept="image/*" required>
+                <input type="file" id="imagen" name="imagen" accept="image/*">
             </div>
             <div class="form-group">
                 <label for="id_rol">Rol:</label>
                 <select id="id_rol" name="id_rol" required> 
                     <?php
-                        // require_once '../includes/connection.php';
+                        require_once '../includes/connection.php'; // ????
 
                         // Roles disponibles
                         $query = "SELECT id_rol, nombre_rol FROM roles";
@@ -125,6 +125,3 @@
     </main>
 
 <?php include_once("../includes/footer.php"); ?>
-
-
-

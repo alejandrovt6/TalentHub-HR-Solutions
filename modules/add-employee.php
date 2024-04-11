@@ -47,7 +47,7 @@
                 <label for="id_rol">Rol:</label>
                 <select id="id_rol" name="id_rol" required> 
                     <?php
-                        // require_once '../includes/connection.php';
+                        require_once '../includes/connection.php';
 
                         // Roles disponibles
                         $query = "SELECT id_rol, nombre_rol FROM roles";

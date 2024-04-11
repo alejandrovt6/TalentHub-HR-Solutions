@@ -66,7 +66,7 @@
                                 echo '<td>' . $row['nombre_rol'] . '</td>';
                                 echo '<td>' . $num_empleados . '</td>'; 
                                 echo '<td><a href="#" class="btn-table btn-download">Descargar</a></td>';
-                                echo '<td><a href="#" class="btn-table btn-edit">Editar</a></td>';
+                                echo '<td><a href="../actions/edit-role.php?id_rol=' . $row['id_rol'] . '" class="btn-table btn-edit">Editar</a></td>';
                                 echo '<td><a href="../actions/delete-role.php?id_rol=' . $row['id_rol'] . '" class="btn-table btn-delete">Eliminar</a></td>';
                             echo '</tr>';
                         }

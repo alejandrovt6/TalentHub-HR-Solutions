@@ -54,7 +54,7 @@
                 // Iterar sobre los resultados y mostrar empleados
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<tr>';
-                        echo '<td><img src="' . $row['imagen'] . '" alt="Imagen de empleado"></td>';
+                        echo '<td><img src="' . $row['imagen'] . '" alt="Img"></td>';
                         echo '<td>' . $row['dni'] . '</td>';
                         echo '<td>' . $row['nombre'] . '</td>';
                         echo '<td>' . $row['apellidos'] . '</td>';
