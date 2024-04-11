@@ -8,7 +8,7 @@
 
     // Verificar si el usuario tiene el rol adecuado
     if ($_SESSION['rol_id'] != 1) {
-        header("Location: ../index.php"); // Si no tiene el rol adecuado
+        header("Location: ../index.php"); 
         exit();
     }
 ?>

@@ -1,4 +1,19 @@
 <?php
+    require_once '../includes/connection.php';
+    // Verificar si el empleado está autenticado
+    if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
+        header("Location: ../index.php"); // Si no está autenticado
+        exit();
+    }
+
+    // Verificar si el usuario tiene el rol adecuado
+    if ($_SESSION['rol_id'] != 1) {
+        header("Location: ../index.php"); 
+        exit();
+    }
+?>
+
+<?php
     if (isset($_GET['dni'])) {
         $dni = $_GET['dni'];
 
@@ -12,10 +27,10 @@
             // Obtener datos
             $employee = mysqli_fetch_assoc($result);
 
-            // Obtener el DNI del empleado a editar de la URL
+            // Obtener DNI del empleado
             $dni_empleado = isset($_GET['dni']) ? $_GET['dni'] : null;
 
-            // Consultar la base de datos para obtener los datos del empleado
+            // Obtener  datos del empleado
             $query = "SELECT * FROM empleados WHERE dni = '$dni_empleado'";
             $result = mysqli_query($db, $query);
 
@@ -30,10 +45,13 @@
                 $nombre = $empleado['nombre'];
                 $apellidos = $empleado['apellidos'];
                 $id_rol = $empleado['id_rol'];
+                // TODO: imagen
                 $fecha_nacimiento = $empleado['fecha_nacimiento'];
                 $fecha_inicio = $empleado['fecha_inicio'];
                 $sueldo = $empleado['sueldo'];
-
+            } 
+        }
+    }
 ?>
 
 <?php include_once("../includes/header-admin.php"); ?>
@@ -62,10 +80,10 @@
                 <label for="apellidos">Apellidos:</label>
                 <input type="text" id="nombre" name="nombre" value="<?php echo $apellidos; ?>" required>
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="imagen">Imagen:</label>
                 <input type="file" id="imagen" name="imagen" accept="image/*" required>
-            </div> -->
+            </div>
             <div class="form-group">
                 <label for="id_rol">Rol:</label>
                 <select id="id_rol" name="id_rol" required> 
@@ -106,17 +124,7 @@
     </div>
     </main>
 
-
-
 <?php include_once("../includes/footer.php"); ?>
 
-
-<?php
-    } else {
-        echo "Empleado no encontrado.";
-        }
-    }
-}
-?>
 
 

@@ -1,5 +1,5 @@
 <?php
-    require_once '../includes/connection.php'; // quitar?
+    require_once '../includes/connection.php';
     // Verificar si el usuario está autenticado
     if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
         header("Location: ../index.php"); // Si no está autenticado
@@ -39,10 +39,10 @@
                 <label for="apellidos">Apellidos:</label>
                 <input type="text" id="apellidos" name="apellidos" required>
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="imagen">Imagen:</label>
                 <input type="file" id="imagen" name="imagen" accept="image/*" required>
-            </div> -->
+            </div>
             <div class="form-group">
                 <label for="id_rol">Rol:</label>
                 <select id="id_rol" name="id_rol" required> 

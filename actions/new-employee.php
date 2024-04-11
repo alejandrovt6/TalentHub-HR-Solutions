@@ -24,8 +24,6 @@ if(isset($_POST)) {
     $errors = array();
 
     // Validar datos
-
-    // DNI
     if (!empty($dni) && strlen($dni) == 9 && preg_match("/^[0-9]{8}[A-Za-z]$/", $dni)) {
         $dni_valido = true;
     } else {
@@ -33,7 +31,6 @@ if(isset($_POST)) {
         $errors['dni'] = 'El DNI debe tener el formato correcto.';
     }
 
-    // Contraseña
     if (!empty($contraseña) && strlen($contraseña) >= 8) {
         $contraseña_valido = true;
     } else {
@@ -41,7 +38,6 @@ if(isset($_POST)) {
         $errors['contraseña'] = 'La contraseña debe tener al menos 8 caracteres.';
     }
 
-    // Email
     if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_valido = true;
     } else {
@@ -49,7 +45,6 @@ if(isset($_POST)) {
         $errors['email'] = 'El correo electrónico no es válido.';
     }
 
-    // Nombre
     if (!empty($nombre) && !is_numeric($nombre) && !preg_match("/[0-9]/", $nombre)) {
         $nombre_valido = true;
     } else {
@@ -57,7 +52,6 @@ if(isset($_POST)) {
         $errors['nombre'] = 'El nombre no es válido.';
     }
 
-    // Apellidos
     if (!empty($apellidos) && !is_numeric($apellidos) && !preg_match("/[0-9]/", $apellidos)) {
         $apellidos_valido = true;
     } else {
@@ -65,14 +59,12 @@ if(isset($_POST)) {
         $errors['apellidos'] = 'Los apellidos no son válidos.';
     }
 
-    // Imagen 
     if (!empty($imagen)) {
         $imagen_valido = true;
     } else {
-        $imagen_valido = true; // Asumiendo que la imagen es opcional
+        $imagen_valido = true;
     }
 
-    // ID de rol
     if (!empty($id_rol) && is_numeric($id_rol)) {
         $id_rol_valido = true;
     } else {
@@ -80,7 +72,6 @@ if(isset($_POST)) {
         $errors['id_rol'] = 'El ID de rol no es válido.';
     }
 
-    // Fecha de nacimiento
     if (!empty($fecha_nacimiento) && strtotime($fecha_nacimiento)) {
         $fecha_nacimiento_valido = true;
     } else {
@@ -88,7 +79,6 @@ if(isset($_POST)) {
         $errors['fecha_nacimiento'] = 'La fecha de nacimiento no es válida.';
     }
 
-    // Fecha de inicio
     if (!empty($fecha_inicio) && strtotime($fecha_inicio)) {
         $fecha_inicio_valido = true;
     } else {
@@ -96,7 +86,6 @@ if(isset($_POST)) {
         $errors['fecha_inicio'] = 'La fecha de inicio no es válida.';
     }
 
-    // Sueldo
     if (!empty($sueldo) && is_numeric($sueldo)) {
         $sueldo_valido = true;
     } else {
@@ -118,19 +107,18 @@ if(isset($_POST)) {
         // Consulta SQL
         $sql = "INSERT INTO empleados (DNI, contraseña, email, nombre, apellidos, imagen, id_rol, fecha_nacimiento, fecha_inicio, sueldo) VALUES ('$dni', '$contraseña_encriptada', '$email', '$nombre', '$apellidos', '$imagen', '$id_rol', '$fecha_nacimiento', '$fecha_inicio', '$sueldo')";
 
-        // Ejecutar la consulta SQL para insertar el usuario
         $save = mysqli_query($db, $sql);
 
-        // Verificar si se guardó correctamente el usuario
+        // Verificar si se guardó el usuario
         if ($save) {
             $_SESSION['completed'] = '¡Empleado registrado exitosamente!';
-            header("Location: ../modules/employees.php"); // Redirigirá cuando se cree correctamente el usuario
+            header("Location: ../modules/employees.php"); // Redirigirá cuando se cree el usuario
             exit();
         } else {
             $_SESSION['errors']['general'] = 'Error al registrar el empleado. Por favor, inténtalo de nuevo.';
         }
     } else {
-        // Si hay errores de validación, guardarlos en la sesión
+        // Si hay errores de validación, se guardan en la sesión
         $_SESSION['errors'] = $errors;
     }
 }

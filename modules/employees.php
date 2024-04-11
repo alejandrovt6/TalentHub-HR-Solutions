@@ -1,3 +1,18 @@
+<?php
+    require_once '../includes/connection.php';
+    // Verificar si el empleado está autenticado
+    if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
+        header("Location: ../index.php"); // Si no está autenticado
+        exit();
+    }
+
+    // Verificar si el usuario tiene el rol adecuado
+    if ($_SESSION['rol_id'] != 1) {
+        header("Location: ../index.php"); 
+        exit();
+    }
+?>
+
 <?php include_once("../includes/header-admin.php"); ?>
 
 <link rel="stylesheet" href="../assets/css/style-main.css"> 
@@ -21,7 +36,7 @@
                 echo '<table class="employee-table">';
                     echo '<thead>';
                         echo '<tr>';
-                            // echo '<th>Imagen</th>';
+                            echo '<th>Imagen</th>';
                             echo '<th>DNI</th>';
                             echo '<th>Nombre</th>';
                             echo '<th>Apellidos</th>';
@@ -39,7 +54,7 @@
                 // Iterar sobre los resultados y mostrar empleados
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<tr>';
-                        // echo '<td><img src="' . $row['imagen'] . '" alt="Imagen de empleado"></td>';
+                        echo '<td><img src="' . $row['imagen'] . '" alt="Imagen de empleado"></td>';
                         echo '<td>' . $row['dni'] . '</td>';
                         echo '<td>' . $row['nombre'] . '</td>';
                         echo '<td>' . $row['apellidos'] . '</td>';
@@ -56,7 +71,7 @@
                         echo '<td>' . number_format($row['sueldo'], 0, ',','.') . '</td>';
                         echo '<td><a href="#" class="btn-table btn-download">Descargar</a></td>';
                         echo '<td><a href="../actions/edit-employee.php?dni=' . $row['dni'] . '" class="btn-table btn-edit">Editar</a></td>';
-                        echo '<td><a href="#" class="btn-table btn-delete">Eliminar</a></td>';
+                        echo '<td><a href="../actions/delete-employee.php?dni=' . $row['dni'] . '" class="btn-table btn-delete">Eliminar</a></td>';
                     echo '</tr>';
                 }
 

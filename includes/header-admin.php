@@ -14,6 +14,7 @@
                 <li><a href="../modules/admin.php">Inicio</a></li>
                 <li><a href="../modules/employees.php">Empleados</a></li>
                 <li><a href="../modules/roles.php">Roles</a></li>
+                <li><a href="../modules/data.php">Mis datos</a></li>
                 <li><a href="../actions/logout.php">Cerrar sesión</a></li>
             </ul>
         </nav>

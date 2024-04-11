@@ -1,3 +1,18 @@
+<?php
+    require_once '../includes/connection.php';
+    // Verificar si el empleado está autenticado
+    if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
+        header("Location: ../index.php"); // Si no está autenticado
+        exit();
+    }
+
+    // Verificar si el usuario tiene el rol adecuado
+    if ($_SESSION['rol_id'] != 1) {
+        header("Location: ../index.php"); 
+        exit();
+    }
+?>
+
 <?php include_once("../includes/header-admin.php"); ?>
 
 <link rel="stylesheet" href="../assets/css/style-main.css"> 
@@ -52,7 +67,7 @@
                                 echo '<td>' . $num_empleados . '</td>'; 
                                 echo '<td><a href="#" class="btn-table btn-download">Descargar</a></td>';
                                 echo '<td><a href="#" class="btn-table btn-edit">Editar</a></td>';
-                                echo '<td><a href="#" class="btn-table btn-delete">Eliminar</a></td>';
+                                echo '<td><a href="../actions/delete-role.php?id_rol=' . $row['id_rol'] . '" class="btn-table btn-delete">Eliminar</a></td>';
                             echo '</tr>';
                         }
 
