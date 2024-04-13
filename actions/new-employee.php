@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 if(isset($_POST)) {
 
@@ -59,11 +61,33 @@ if(isset($_POST)) {
         $errors['apellidos'] = 'Los apellidos no son válidos.';
     }
 
-    if (!empty($imagen)) {
-        $imagen_valido = true;
+    // Validar la imagen
+    if(isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
+        // Obtener la información del archivo subido
+        $imagen_name = $_FILES['imagen']['name']; // Nombre del archivo
+        $imagen_tmp = $_FILES['imagen']['tmp_name']; // Ruta temporal del archivo en el servidor
+        $imagen_size = $_FILES['imagen']['size']; // Tamaño del archivo en bytes
+        $imagen_type = $_FILES['imagen']['type']; // Tipo MIME del archivo
+
+        // Mover el archivo cargado a la ubicación deseada en el servidor
+        $upload_directory = '../assets/img/profiles'; // Directorio donde se guardará la imagen
+        $ruta_imagen = $upload_directory . $imagen_name; // Ruta completa donde se guardará la imagen
+
+        // Mover el archivo temporal a la ubicación deseada
+        if(move_uploaded_file($imagen_tmp, $ruta_imagen)) {
+            // La imagen se ha subido correctamente
+            $imagen_valido = true;
+        } else {
+            // Error al mover el archivo
+            $errors['imagen'] = 'Error al subir la imagen.';
+            $imagen_valido = false;
+        }
     } else {
-        $imagen_valido = true;
+        // No se ha subido ningún archivo
+        $errors['imagen'] = 'Por favor, selecciona una imagen.';
+        $imagen_valido = false;
     }
+
 
     if (!empty($id_rol) && is_numeric($id_rol)) {
         $id_rol_valido = true;
@@ -105,7 +129,8 @@ if(isset($_POST)) {
     // Validar datos del formulario y comprobar si hay errores
     if (count($errors) == 0) {
         // Consulta SQL
-        $sql = "INSERT INTO empleados (DNI, contraseña, email, nombre, apellidos, imagen, id_rol, fecha_nacimiento, fecha_inicio, sueldo) VALUES ('$dni', '$contraseña_encriptada', '$email', '$nombre', '$apellidos', '$imagen', '$id_rol', '$fecha_nacimiento', '$fecha_inicio', '$sueldo')";
+        $sql = "INSERT INTO empleados (DNI, contraseña, email, nombre, apellidos, imagen, id_rol, fecha_nacimiento, fecha_inicio, sueldo) 
+        VALUES ('$dni', '$contraseña_encriptada', '$email', '$nombre', '$apellidos', '$ruta_imagen', '$id_rol', '$fecha_nacimiento', '$fecha_inicio', '$sueldo')";
 
         $save = mysqli_query($db, $sql);
 
@@ -122,3 +147,4 @@ if(isset($_POST)) {
         $_SESSION['errors'] = $errors;
     }
 }
+

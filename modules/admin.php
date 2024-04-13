@@ -16,7 +16,7 @@
 <?php include_once("../includes/header-admin.php");?>
 
     <main>
-        <h1>BIENVENIDO, <?= $_SESSION['nombre'].' '.$_SESSION['apellidos']; ?></h1>
+        <h1>BIENVENIDO, </h1>
         <div class="container">
         <h2>Descubre lo que Talent Hub HR Solutions tiene para ofrecerte:</h2>
             <p>Somos una empresa dedicada a proporcionar soluciones integrales en recursos humanos para empresas de todos los tamaños. Nuestro objetivo es ayudarte a optimizar la gestión del talento en tu organización y a impulsar el crecimiento de tu negocio.</p>

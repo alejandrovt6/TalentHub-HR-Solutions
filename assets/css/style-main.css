@@ -184,6 +184,10 @@ select {
     height: 40px;
 }
 
+.img-profile {
+    width: 5vh;
+}
+
 /* button[type="submit"] {
     background-color: var(--blue);
     color: var(--black);
