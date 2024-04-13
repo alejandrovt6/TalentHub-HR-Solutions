@@ -39,13 +39,12 @@
                 // Obtener los datos del empleado
                 $empleado = mysqli_fetch_assoc($result);
 
-                // Poblar los campos del formulario con los datos del empleado
                 $dni = $empleado['dni'];
                 $email = $empleado['email'];
                 $nombre = $empleado['nombre'];
                 $apellidos = $empleado['apellidos'];
-                $id_rol = $empleado['id_rol'];
-                //$imagen = $imagen['imagen'];
+                $id_rol = $empleado['id_rol']; // TODO: NO LO TRAE
+                $imagen = isset($empleado['imagen']) ? $empleado['imagen'] : ''; // TODO: NO LA TRAE
                 $fecha_nacimiento = $empleado['fecha_nacimiento'];
                 $fecha_inicio = $empleado['fecha_inicio'];
                 $sueldo = $empleado['sueldo'];
@@ -59,7 +58,7 @@
     <main>
         <h1>Editar empleado</h1>
         <div class="container">
-        <form action="../actions/new-employee.php" method="POST" enctype="multipart/form-data">
+        <form action="./new-employee.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="dni">DNI:</label>
                 <input type="text" id="dni" name="dni" value="<?php echo $dni; ?>" required>
@@ -118,8 +117,7 @@
                 <input type="text" id="sueldo" name="sueldo" value="<?php echo number_format($empleado['sueldo'], 0, ',', '.'); ?>" required>
 
             </div>
-            <button class="btn add-employee-btn" type="submit">Editar empleado</button>
-            
+            <button class="btn add-employee-btn" type="submit">Editar empleado</button>   
         </form>
     </div>
     </main>

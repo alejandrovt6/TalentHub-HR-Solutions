@@ -10,6 +10,7 @@ COLORS
     --white: white;
     --red: #FF9999;
     --green: #99FF99;
+    --orange: orange;
 }
 
 /******************
@@ -60,9 +61,9 @@ main {
 .container {
     margin-top: 20px;
     /* border: 1px solid var(--grey); */
-    /* background-color: var(--white-grey); */
+    background-color: var(--white-grey);
     padding: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 /******************
@@ -81,6 +82,10 @@ footer {
 /******************
 TABLE
 ******************/
+table {
+    background-color: var(--white);
+}
+
 .employee-table {
     border-collapse: collapse;
     width: 80%;
@@ -123,7 +128,7 @@ BUTTONS
     padding: 10px 15px;
     border-radius: 20px;
     text-decoration: none;
-    color: var(--black)
+    color: var(--black);
 }
 
 .add-employee-btn {
@@ -148,10 +153,15 @@ BUTTONS
 
 .btn-delete {
     background-color: var(--red);
+    cursor: pointer;
 }
 
 .btn-download {
     background-color: var(--blue);
+}
+
+.btn-cancel {
+    border: 2px solid var(--black);
 }
 
 /******************

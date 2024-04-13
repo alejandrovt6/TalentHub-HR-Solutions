@@ -71,7 +71,7 @@
                         echo '<td>' . number_format($row['sueldo'], 0, ',','.') . '</td>';
                         echo '<td><a href="#" class="btn-table btn-download">Descargar</a></td>';
                         echo '<td><a href="../actions/edit-employee.php?dni=' . $row['dni'] . '" class="btn-table btn-edit">Editar</a></td>';
-                        echo '<td><a href="../actions/delete-employee.php?dni=' . $row['dni'] . '" class="btn-table btn-delete">Eliminar</a></td>';
+                        echo '<td><a href="../actions/delete-employee.php?dni=' . $row['dni'] . '" class="btn-table btn-delete"><img src="../assets/img/icons/delete.svg" alt="Eliminar"></a></td>';
                     echo '</tr>';
                 }
 

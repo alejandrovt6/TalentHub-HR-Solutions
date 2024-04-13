@@ -20,6 +20,11 @@
 <main>
     <h1>Lista de roles</h1>
     <a href="add-role.php" class="btn add-employee-btn">Añadir rol</a>
+
+<div id="notification" class="notification">
+<span id="notification-message"></span>
+</div>
+
     <div class="container">
 
         <table class="role-table">
@@ -82,5 +87,6 @@
         </table>
     </div>
 </main>
+
 
 <?php include_once("../includes/footer.php"); ?>

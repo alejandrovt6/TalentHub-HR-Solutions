@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 if(isset($_POST)) {
 
     require_once '../includes/connection.php';
@@ -129,7 +126,7 @@ if(isset($_POST)) {
     // Validar datos del formulario y comprobar si hay errores
     if (count($errors) == 0) {
         // Consulta SQL
-        $sql = "INSERT INTO empleados (DNI, contraseña, email, nombre, apellidos, imagen, id_rol, fecha_nacimiento, fecha_inicio, sueldo) 
+        $sql = "INSERT INTO empleados (dni, contraseña, email, nombre, apellidos, imagen, id_rol, fecha_nacimiento, fecha_inicio, sueldo) 
         VALUES ('$dni', '$contraseña_encriptada', '$email', '$nombre', '$apellidos', '$ruta_imagen', '$id_rol', '$fecha_nacimiento', '$fecha_inicio', '$sueldo')";
 
         $save = mysqli_query($db, $sql);
