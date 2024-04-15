@@ -12,12 +12,25 @@
         header("Location: ../index.php"); // Si no tiene el rol adecuado
         exit();
     }
+
+    // Obtener nombre del usuario logueado
+    $dni = $_SESSION['dni'];
+    $query = "SELECT nombre FROM empleados WHERE dni = '$dni'";
+    $result = mysqli_query($db, $query);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $empleado = mysqli_fetch_assoc($result);
+        $nombre = $empleado['nombre'];
+    } else {
+        // Si no se puede obtener el nombre del empleado, usar un valor predeterminado
+        $nombre = 'Invitado';
+    }
 ?>
 
 <?php include_once("../includes/header-employee.php");?>
 
     <main>
-        <h1>BIENVENIDO, $USER</h1>
+    <h1>Bienvenido, <?php echo $nombre; ?></h1>
         <div class="container">
         <h2>Descubre lo que Talent Hub HR Solutions tiene para ofrecerte:</h2>
             <p>Somos una empresa dedicada a proporcionar soluciones integrales en recursos humanos para empresas de todos los tamaños. Nuestro objetivo es ayudarte a optimizar la gestión del talento en tu organización y a impulsar el crecimiento de tu negocio.</p>

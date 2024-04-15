@@ -2,7 +2,7 @@
     require_once '../includes/connection.php';
     // Verificar si el empleado está autenticado
     if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
-        header("Location: ../index.php"); // Si no está autenticado
+        header("Location: ../index.php"); 
         exit();
     }
 
@@ -31,11 +31,10 @@
             <?php
                 require_once '../includes/connection.php';
 
-                // Consulta SQL para obtener los roles
+                // Obtener roles
                 $sql = "SELECT id_rol, nombre_rol FROM roles";
                 $result = mysqli_query($db, $sql);
 
-                // Roles
                 if ($result && mysqli_num_rows($result) > 0) {
 
                     echo '<table class="role-table">';
@@ -54,7 +53,7 @@
                         echo '<tbody>';
                         // Iterar sobre los resultados y mostrar cada rol en una fila de la tabla
                         while ($row = mysqli_fetch_assoc($result)) {
-                            // Consulta SQL para contar el número de empleados asociados a este rol
+                            // Contar el número de empleados asociados a este rol
                             $rol_id = $row['id_rol'];
                             $count_query = "SELECT COUNT(*) AS count FROM empleados WHERE id_rol = $rol_id";
                             $count_result = mysqli_query($db, $count_query);
@@ -70,9 +69,9 @@
                                 // echo '<td>' . $row['id_rol'] . '</td>';
                                 echo '<td>' . $row['nombre_rol'] . '</td>';
                                 echo '<td>' . $num_empleados . '</td>'; 
-                                echo '<td><a href="#" class="btn-table btn-download">Descargar</a></td>';
-                                echo '<td><a href="../actions/edit-role.php?id_rol=' . $row['id_rol'] . '" class="btn-table btn-edit">Editar</a></td>';
-                                echo '<td><a href="../actions/delete-role.php?id_rol=' . $row['id_rol'] . '" class="btn-table btn-delete">Eliminar</a></td>';
+                                echo '<td><a href="#" class="btn-table btn-download"><img src="../assets/img/icons/download.svg" alt="Descargar"></a></a></td>';
+                                echo '<td><a href="../actions/edit-role.php?id_rol=' . $row['id_rol'] . '" class="btn-table btn-edit"><img src="../assets/img/icons/edit.svg" alt="Editar"></a></a></td>';
+                                echo '<td><a href="../actions/delete-role.php?id_rol=' . $row['id_rol'] . '" class="btn-table btn-delete"><img src="../assets/img/icons/delete.svg" alt="Eliminar"></a></td>';
                             echo '</tr>';
                         }
 

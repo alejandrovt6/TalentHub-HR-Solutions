@@ -2,7 +2,7 @@
     require_once '../includes/connection.php';
     // Verificar si el empleado está autenticado
     if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
-        header("Location: ../index.php"); // Si no está autenticado
+        header("Location: ../index.php"); 
         exit();
     }
 
@@ -27,10 +27,7 @@
             if($result) {
                 // ALERTA
                 header("Location: ../modules/roles.php");
-
                 exit(); 
-            } else {
-                // ALERTA
             }
         }
 
@@ -49,7 +46,7 @@
 <main>
     <h1>Eliminar Rol</h1>
     <div class="container">
-        <p>¿Seguro que quieres eliminar el rol '<?php echo $rol['nombre_rol']; ?>'?</p>
+        <p>¿Seguro que quieres eliminar el rol '<?php echo '<b>' . $rol['nombre_rol'] . '</b>'; ?>'?</p>
         <form action="delete-role.php?id_rol=<?php echo $id_rol; ?>" method="POST">
             <input type="hidden" name="confirm" value="yes">
             <button class="btn btn-delete" type="submit">Eliminar</button>
@@ -57,5 +54,6 @@
         </form>
     </div>
 </main>
+
 
 <?php include_once("../includes/footer.php"); ?>

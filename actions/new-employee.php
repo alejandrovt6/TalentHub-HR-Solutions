@@ -67,7 +67,7 @@ if(isset($_POST)) {
         $imagen_type = $_FILES['imagen']['type']; // Tipo MIME del archivo
 
         // Mover el archivo cargado a la ubicación deseada en el servidor
-        $upload_directory = '../assets/img/profiles'; // Directorio donde se guardará la imagen
+        $upload_directory = '../assets/img/profiles/'; // Directorio donde se guardará la imagen
         $ruta_imagen = $upload_directory . $imagen_name; // Ruta completa donde se guardará la imagen
 
         // Mover el archivo temporal a la ubicación deseada
