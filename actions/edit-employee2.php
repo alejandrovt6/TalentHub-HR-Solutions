@@ -53,9 +53,7 @@
     }
 ?>
 
-<?php  require_once '../includes/connection.php'; ?>
-
-<?php include_once "../includes/header-admin.php"; ?>
+<?php include_once("../includes/header-admin.php"); ?>
 
     <main>
         <h1>Editar empleado</h1>

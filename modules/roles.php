@@ -75,6 +75,23 @@
                             echo '</tr>';
                         }
 
+                         // Total de empleados
+                        $total_query = "SELECT COUNT(*) AS total FROM empleados";
+                        $total_result = mysqli_query($db, $total_query);
+
+                        if ($total_result && mysqli_num_rows($total_result) > 0) {
+                            $total_row = mysqli_fetch_assoc($total_result);
+                            $total_empleados = $total_row['total'];
+
+                            echo '<tr>';
+                                echo '<td>Total de empleados</td>';
+                                echo '<td>' . $total_empleados . '</td>';
+                                echo '<td></td>';
+                                echo '<td></td>';
+                                echo '<td></td>'; 
+                            echo '</tr>';
+                        }
+
                         echo '</tbody>';
                         
                     echo '</table>';

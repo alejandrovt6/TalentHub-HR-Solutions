@@ -10,7 +10,7 @@
     if ($_SESSION['rol_id'] != 1) {
         header("Location: ../index.php"); // Si no tiene el rol adecuado
         exit();
-    }
+    } 
 ?>
 
 <?php include_once("../includes/header-admin.php"); ?>
