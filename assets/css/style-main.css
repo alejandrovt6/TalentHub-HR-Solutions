@@ -4,12 +4,15 @@ COLORS
 :root {
     --blue: #00bfff;
     --dark-blue: #0056b3;
+    --white-blue: #97bfe9;
     --grey: #BCD1D2;
     --white-grey: #F0F0F0;
     --black: black;
     --white: white;
-    --red: #FF9999;
-    --green: #99FF99;
+    --red: #eb4646;
+    --white-red:#FF9999;
+    --green: #7cf87c;
+    --white-green:#ade2ad;
     --orange: orange;
 }
 
@@ -65,6 +68,32 @@ main {
     background-color: var(--white-grey);
     padding: 20px;
     text-align: center;
+    opacity: 0.9;
+}
+
+.main-container {
+    /* margin-top: 20px;
+    margin-bottom: 100px; */
+    /* border: 1px solid var(--grey); */
+    /* background-color: var(--white-grey); */
+    /* padding: 20px;
+    text-align: center; */
+}
+
+.main-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/main1.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.employees-container {
 }
 
 /******************
@@ -130,13 +159,16 @@ BUTTONS
     border-radius: 20px;
     text-decoration: none;
     color: var(--black);
+    cursor: pointer;
 }
 
-.add-employee-btn {
+.add-employee-btn,
+.btn-edit-data {
     background-color: var(--blue);
 }
 
-.add-employee-btn:hover {
+.add-employee-btn:hover,
+.btn-edit-data:hover {
     background-color: var(--dark-blue);
     color: var(--white);
 }
@@ -152,13 +184,25 @@ BUTTONS
     background-color: var(--green);
 }
 
+.btn-edit:hover {
+    background-color: var(--white-green);
+}
+
 .btn-delete {
     background-color: var(--red);
     cursor: pointer;
 }
 
+.btn-delete:hover {
+    background-color: var(--white-red);
+}
+
 .btn-download {
     background-color: var(--blue);
+}
+
+.btn-download:hover {
+    background-color: var(--white-blue);
 }
 
 .btn-cancel {
