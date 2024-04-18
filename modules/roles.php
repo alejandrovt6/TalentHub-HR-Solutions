@@ -44,7 +44,7 @@
                                 // echo '<th>Id rol</th>';
                                 echo '<th>Nombre</th>';
                                 echo '<th>Nº de empleados</th>';
-                                echo '<th>Descargar listado</th>';
+                                // echo '<th>Descargar listado</th>';
                                 echo '<th colspan="2">Administrar</th>';
 
                             echo '</tr>';
@@ -69,7 +69,7 @@
                                 // echo '<td>' . $row['id_rol'] . '</td>';
                                 echo '<td>' . $row['nombre_rol'] . '</td>';
                                 echo '<td>' . $num_empleados . '</td>'; 
-                                echo '<td><a href="#" class="btn-table btn-download"><img src="../assets/img/icons/download.svg" alt="Descargar"></a></a></td>';
+                                // echo '<td><a href="#" class="btn-table btn-download"><img src="../assets/img/icons/download.svg" alt="Descargar"></a></a></td>';
                                 echo '<td><a href="../actions/edit-role.php?id_rol=' . $row['id_rol'] . '" class="btn-table btn-edit"><img src="../assets/img/icons/edit.svg" alt="Editar"></a></a></td>';
                                 echo '<td><a href="../actions/delete-role.php?id_rol=' . $row['id_rol'] . '" class="btn-table btn-delete"><img src="../assets/img/icons/delete.svg" alt="Eliminar"></a></td>';
                             echo '</tr>';
@@ -88,7 +88,7 @@
                                 echo '<td>' . $total_empleados . '</td>';
                                 echo '<td></td>';
                                 echo '<td></td>';
-                                echo '<td></td>'; 
+                                // echo '<td></td>'; 
                             echo '</tr>';
                         }
 

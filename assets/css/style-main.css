@@ -71,6 +71,35 @@ main {
     opacity: 0.9;
 }
 
+.main-error {
+    background-image: url(../img/404-bg2.jpg);
+}
+
+.error-container {
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding: 20px;
+    text-align: center;
+}
+
+.error-text {
+    border: 1px solid var(--black);
+    background-color: var(--white-grey);
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.cat-meme {
+    max-width: 700px;
+    margin: 50px auto;
+}
+.cat-meme img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .main-container {
     /* margin-top: 20px;
     margin-bottom: 100px; */
@@ -93,8 +122,18 @@ main {
     z-index: -1;
 }
 
-.employees-container {
+.container h2,
+.container h3,
+.container p,
+.container ul {
+    text-align: left;
 }
+
+.name {
+    color:blue;
+}
+
+
 
 /******************
 FOOTER

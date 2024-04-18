@@ -3,24 +3,24 @@
 
     // Verificar si el empleado está autenticado
     if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
-        header("Location: ../index.php"); // Si no está autenticado
+        header("Location: ../index.php"); 
         exit();
     }
 
     // Verificar si el usuario tiene el rol adecuado
     if ($_SESSION['rol_id'] == 1) {
-        header("Location: ../index.php"); // Si no tiene el rol adecuado
+        header("Location: ../index.php"); 
         exit();
     }
 
     // Obtener nombre del usuario logueado
     $dni = $_SESSION['dni'];
-    $query = "SELECT nombre FROM empleados WHERE dni = '$dni'";
+    $query = "SELECT nombre, apellidos FROM empleados WHERE dni = '$dni'";
     $result = mysqli_query($db, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
         $empleado = mysqli_fetch_assoc($result);
-        $nombre = $empleado['nombre'];
+        $nombre = $empleado['nombre'] . ' ' . $empleado['apellidos'];
     } else {
         // Si no se puede obtener el nombre del empleado, usar un valor predeterminado
         $nombre = 'Invitado';

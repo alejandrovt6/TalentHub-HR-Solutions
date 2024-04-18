@@ -45,7 +45,7 @@
                                     echo '<th>Rol</th>';
                                     echo '<th>Fecha inicio</th>';
                                     echo '<th>Sueldo</th>';
-                                    echo '<th>Informe</th>';
+                                    // echo '<th>Informe</th>';
                                     echo '<th colspan="2">Administrar</th>';
                                 echo '</tr>';
                             echo '</thead>';
@@ -69,10 +69,7 @@
                                 echo '<td>' . $rol_nombre . '</td>';
                                 echo '<td>' . $row['fecha_inicio'] . '</td>';
                                 echo '<td>' . number_format($row['sueldo'], 0, ',','.') . '</td>';
-                                // Enlace para descargar el PDF
-                                // $pdf_dni = $row['dni'] . '.pdf'; // Nombre del archivo PDF
-                                // echo '<td><a href="../assets/pdf/ejemplo.pdf" class="btn-table btn-download" download="' . $pdf_dni . '"><img src="../assets/img/icons/download.svg" alt="Descargar"></a></td>';
-                                echo '<td><a href="../assets/pdf/ejemplo.pdf" class="btn-table btn-download" download><img src="../assets/img/icons/download.svg" alt="Descargar"></a></td>';
+                                // echo '<td><a href="../assets/pdf/ejemplo.pdf" class="btn-table btn-download" download><img src="../assets/img/icons/download.svg" alt="Descargar"></a></td>';
                                 echo '<td><a href="../actions/edit-employee.php?dni=' . $row['dni'] . '" class="btn-table btn-edit"><img src="../assets/img/icons/edit.svg" alt="Editar"></a></td>';
                                 echo '<td><a href="../actions/delete-employee.php?dni=' . $row['dni'] . '" class="btn-table btn-delete"><img src="../assets/img/icons/delete.svg" alt="Eliminar"></a></td>';
                             echo '</tr>';
