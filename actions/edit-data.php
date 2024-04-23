@@ -35,29 +35,29 @@
 <?php include_once("../includes/header-admin.php"); ?> 
 
 <main class="main">
-    <h1>Mis datos</h1>
-    <a href="../actions/edit-data.php" class="btn btn-edit-data">Editar mis datos</a>
+    <h1>Editar mis datos</h1>
     <div class="container">
         <form action="update-data.php" method="post">
+            <input type="hidden" name="dni" value="<?php echo $empleado['dni']; ?>">
+
             <div class="form-group">
                 <label for="dni">DNI:</label>
-                <input type="text" id="dni" name="dni" value="<?php echo $empleado['dni']; ?>" readonly>
+                <input type="text" id="dni" name="dni" value="<?php echo $empleado['dni']; ?>">
             </div>
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" value="<?php echo $empleado['nombre']; ?>" readonly>    
+                <input type="text" id="nombre" name="nombre" value="<?php echo $empleado['nombre']; ?>">
             </div>
             <div class="form-group">
                 <label for="apellidos">Apellidos:</label>
-                <input type="text" id="apellidos" name="apellidos" value="<?php echo $empleado['apellidos']; ?>" readonly>    
+                <input type="text" id="apellidos" name="apellidos" value="<?php echo $empleado['apellidos']; ?>">
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" value="<?php echo $empleado['email']; ?>" readonly>    
+                <input type="text" id="email" name="email" value="<?php echo $empleado['email']; ?>">
             </div>
 
-
-            <!--TODO: OTROS CAMPOS -->
+            <!--TODO: MAS CAMPOS -->
 
             <button type="submit">Guardar cambios</button>
         </form>
