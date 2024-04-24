@@ -30,9 +30,13 @@
         echo "No se encontró la información del empleado.";
         exit();
     }
+
+    // Determinar qué archivo de encabezado incluir según el rol del empleado
+    $header = ($empleado['id_rol'] == 1) ? "header-admin.php" : "header-employee.php";
 ?>
 
-<?php include_once("../includes/header-admin.php"); ?> 
+<?php include_once("../includes/$header");?>
+
 
 <main class="main">
     <h1>Mis datos</h1>
@@ -59,7 +63,7 @@
 
             <!--TODO: OTROS CAMPOS -->
 
-            <button type="submit">Guardar cambios</button>
+            <button class="btn add-employee-btn" type="submit">Guardar cambios</button>
         </form>
     </div>
 </main>

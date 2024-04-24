@@ -30,9 +30,12 @@
         echo "No se encontró la información del empleado.";
         exit();
     }
+
+    $header = ($empleado['id_rol'] == 1) ? "header-admin.php" : "header-employee.php";
 ?>
 
-<?php include_once("../includes/header-admin.php"); ?> 
+<?php include_once("../includes/$header"); ?>
+
 
 <main class="main">
     <h1>Editar mis datos</h1>
@@ -59,7 +62,7 @@
 
             <!--TODO: MAS CAMPOS -->
 
-            <button type="submit">Guardar cambios</button>
+            <button type="submit" class="btn add-employee-btn">Guardar cambios</button>
         </form>
     </div>
 </main>
