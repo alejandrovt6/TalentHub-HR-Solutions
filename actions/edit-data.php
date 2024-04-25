@@ -42,11 +42,10 @@
     <div class="container">
         <form action="update-data.php" method="post">
             <input type="hidden" name="dni" value="<?php echo $empleado['dni']; ?>">
-
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="dni">DNI:</label>
                 <input type="text" id="dni" name="dni" value="<?php echo $empleado['dni']; ?>">
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" value="<?php echo $empleado['nombre']; ?>">
@@ -59,8 +58,10 @@
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" value="<?php echo $empleado['email']; ?>">
             </div>
-
-            <!--TODO: MAS CAMPOS -->
+            <div class="form-group">
+                <label for="contraseña">Contraseña:</label>
+                <input type="text" id="contraseña" name="contraseña" value="<?php echo $empleado['contraseña']; ?>">
+            </div>
 
             <button type="submit" class="btn add-employee-btn">Guardar cambios</button>
         </form>

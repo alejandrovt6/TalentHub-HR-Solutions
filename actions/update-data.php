@@ -14,11 +14,10 @@
         $nombre = $_POST['nombre'];
         $apellidos = $_POST['apellidos'];
         $email = $_POST['email'];
-        // TODO: Agrega más campos aquí con la misma estructura
+        $contraseña = $_POST['contraseña'];
         
         
-        // TODO: Consulta SQL para actualizar los datos del empleado
-        $query = "UPDATE empleados SET nombre = ?, apellidos = ?, email = ? WHERE dni = ?";
+        $query = "UPDATE empleados SET nombre = ?, apellidos = ?, email = ?, contraseña = ? WHERE dni = ?";
         $stmt = mysqli_prepare($db, $query);
 
         // Vincular los parámetros

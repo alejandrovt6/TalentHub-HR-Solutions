@@ -11,21 +11,43 @@
     $dni = $_SESSION['dni'];
 
     // Obtener la información del empleado
-    $query = "SELECT * FROM empleados WHERE dni = ?";
-    $stmt = mysqli_prepare($db, $query);
+    $query_empleado = "SELECT * FROM empleados WHERE dni = ?";
+    $stmt_empleado = mysqli_prepare($db, $query_empleado);
 
     // Vincular parámetros
-    mysqli_stmt_bind_param($stmt, "s", $dni);
+    mysqli_stmt_bind_param($stmt_empleado, "s", $dni);
 
     // Ejecutar la consulta
-    mysqli_stmt_execute($stmt);
+    mysqli_stmt_execute($stmt_empleado);
 
     // Obtener el resultado
-    $result = mysqli_stmt_get_result($stmt);
+    $result_empleado = mysqli_stmt_get_result($stmt_empleado);
 
     // Verificar si se encontraron resultados
-    if ($result && mysqli_num_rows($result) > 0) {
-        $empleado = mysqli_fetch_assoc($result);
+    if ($result_empleado && mysqli_num_rows($result_empleado) > 0) {
+        $empleado = mysqli_fetch_assoc($result_empleado);
+        $rol_id = $empleado['id_rol'];
+
+        // Nombre del rol
+        $query_rol = "SELECT nombre_rol FROM roles WHERE id_rol = ?";
+        $stmt_rol = mysqli_prepare($db, $query_rol);
+
+        // Vincular parámetros
+        mysqli_stmt_bind_param($stmt_rol, "i", $rol_id);
+
+        // Ejecutar la consulta
+        mysqli_stmt_execute($stmt_rol);
+
+        // Obtener el resultado
+        $result_rol = mysqli_stmt_get_result($stmt_rol);
+
+        // Verificar si se encontraron resultados
+        if ($result_rol && mysqli_num_rows($result_rol) > 0) {
+            $roles = mysqli_fetch_assoc($result_rol);
+        } else {
+            echo "No se encontró el nombre del rol del empleado.";
+            exit();
+        }
     } else {
         echo "No se encontró la información del empleado.";
         exit();
@@ -43,6 +65,10 @@
     <a href="../actions/edit-data.php" class="btn btn-edit-data">Editar mis datos</a>
     <div class="container">
         <form action="update-data.php" method="post">
+            <!-- <div class="form-group">
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" name="imagen" value="<?php echo $empleado['imagen']; ?>" readonly>
+            </div> -->
             <div class="form-group">
                 <label for="dni">DNI:</label>
                 <input type="text" id="dni" name="dni" value="<?php echo $empleado['dni']; ?>" readonly>
@@ -59,10 +85,22 @@
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" value="<?php echo $empleado['email']; ?>" readonly>    
             </div>
-
-
-            <!--TODO: OTROS CAMPOS -->
-
+            <div class="form-group">
+                <label for="rol">Rol:</label>
+                <input type="text" id="rol" name="rol" value="<?php echo $roles['nombre_rol']; ?>" readonly>    
+            </div>
+            <div class="form-group">
+                <label for="fecha_inicio">Fecha inicio:</label>
+                <input type="text" id="fecha_inicio" name="fecha_inicio" value="<?php echo $empleado['fecha_inicio']; ?>" readonly>    
+            </div>
+            <div class="form-group">
+                <label for="fecha_nacimiento">Fecha nacimiento:</label>
+                <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" value="<?php echo $empleado['fecha_nacimiento']; ?>" readonly>    
+            </div>
+            <div class="form-group">
+                <label for="sueldo">Sueldo:</label>
+                <input type="text" id="sueldo" name="sueldo" value="<?php echo $empleado['sueldo']; ?>" readonly>    
+            </div>
             <button class="btn add-employee-btn" type="submit">Guardar cambios</button>
         </form>
     </div>
