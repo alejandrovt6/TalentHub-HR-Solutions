@@ -25,7 +25,7 @@
                     <label for="contraseña">Contraseña:</label>
                     <input type="password" id="contraseña" name="contraseña" required>
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit">Iniciar sesión</button>
                 <!-- <a href=""><p>¿Olvidaste la contraseña?</p></a> -->
             </form>
         </main>

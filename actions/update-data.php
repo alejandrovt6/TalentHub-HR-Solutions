@@ -17,7 +17,7 @@
         $contraseña = $_POST['contraseña'];
         
         
-        $query = "UPDATE empleados SET nombre = ?, apellidos = ?, email = ?, contraseña = ? WHERE dni = ?";
+        $query = "UPDATE empleados SET nombre = ?, apellidos = ?, email = ? WHERE dni = ?";
         $stmt = mysqli_prepare($db, $query);
 
         // Vincular los parámetros
