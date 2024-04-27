@@ -48,7 +48,7 @@
 <main>
     <h1>Eliminar Empleado</h1>
     <div class="container">
-        <p>¿Seguro que quieres eliminar al empleado '<?php echo '<b>' . $empleado['nombre'] . ' ' . $empleado['apellidos'] . '</b>'; ?>'? </p>
+        <p style="text-align: center;">¿Seguro que quieres eliminar al empleado '<?php echo '<b>' . $empleado['nombre'] . ' ' . $empleado['apellidos'] . '</b>'; ?>'? </p>
         <form action="delete-employee.php?dni=<?php echo $dni; ?>" method="POST">
             <input type="hidden" name="confirm" value="yes">
             <button class="btn btn-delete" type="submit">Eliminar</button>

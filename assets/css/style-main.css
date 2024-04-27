@@ -71,6 +71,10 @@ main {
     opacity: 0.9;
 }
 
+.container p {
+    text-align: center;
+}
+
 .main-error {
     background-image: url(../img/404-bg2.jpg);
 }

@@ -46,7 +46,7 @@
 <main>
     <h1>Eliminar Rol</h1>
     <div class="container">
-        <p>¿Seguro que quieres eliminar el rol '<?php echo '<b>' . $rol['nombre_rol'] . '</b>'; ?>'?</p>
+        <p style="text-align: center;">¿Seguro que quieres eliminar el rol '<?php echo '<b>' . $rol['nombre_rol'] . '</b>'; ?>'?</p>
         <form action="delete-role.php?id_rol=<?php echo $id_rol; ?>" method="POST">
             <input type="hidden" name="confirm" value="yes">
             <button class="btn btn-delete" type="submit">Eliminar</button>
