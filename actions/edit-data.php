@@ -60,7 +60,8 @@
             </div>
             <div class="form-group">
                 <label for="contraseña">Contraseña:</label>
-                <input type="text" id="contraseña" name="contraseña" value="<?php echo $empleado['contraseña']; ?>">
+                <!-- <input type="text" id="contraseña" name="contraseña" value="<?php // echo $empleado['contraseña']; ?>"> -->
+                <input type="text" id="contraseña" name="contraseña" value="">
             </div>
 
             <button type="submit" class="btn add-employee-btn">Guardar cambios</button>
