@@ -19,18 +19,18 @@
     if (isset($_GET['dni'])) {
         $dni = $_GET['dni'];
 
-        // Obtener la información del empleado con el DNI
+        // Obtener información del empleado con el DNI
         $query = "SELECT * FROM empleados WHERE dni = '$dni'";
         $result = mysqli_query($db, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
-            // Obtener datos
+
             $employee = mysqli_fetch_assoc($result);
 
-            // Obtener DNI del empleado
+            // Obtener DNI
             $dni_empleado = isset($_GET['dni']) ? $_GET['dni'] : null;
 
-            // Obtener  datos del empleado
+            // Obtener datos
             $query = "SELECT * FROM empleados WHERE dni = '$dni_empleado'";
             $result = mysqli_query($db, $query);
 
@@ -43,8 +43,8 @@
                 $email = $empleado['email'];
                 $nombre = $empleado['nombre'];
                 $apellidos = $empleado['apellidos'];
-                $id_rol = $empleado['id_rol']; // TODO: NO LO TRAE
-                $imagen = isset($empleado['imagen']) ? $empleado['imagen'] : ''; // TODO: NO LA TRAE
+                $id_rol = $empleado['id_rol']; 
+                $imagen = isset($empleado['imagen']) ? $empleado['imagen'] : ''; 
                 $fecha_nacimiento = $empleado['fecha_nacimiento'];
                 $fecha_inicio = $empleado['fecha_inicio'];
                 $sueldo = $empleado['sueldo'];
@@ -65,10 +65,6 @@
                 <label for="dni">DNI:</label>
                 <input type="text" id="dni" name="dni" value="<?php echo $dni; ?>" required>
             </div>
-            <!-- <div class="form-group">
-                <label for="contraseña">Contraseña:</label>
-                <input type="text" id="password" name="password" value="<?php echo $password; ?>" required>
-            </div> -->
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="<?php echo $email; ?>" required>
@@ -91,11 +87,9 @@
                     <?php
                         require_once '../includes/connection.php'; // ????
 
-                        // Roles disponibles
                         $query = "SELECT id_rol, nombre_rol FROM roles";
                         $result = mysqli_query($db, $query);
 
-                        // Verificar si hay resultados e iterar
                         if ($result) {
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo "<option value=\"{$row['id_rol']}\">{$row['nombre_rol']}</option>";

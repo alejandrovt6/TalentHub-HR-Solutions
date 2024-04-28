@@ -58,29 +58,25 @@ if(isset($_POST)) {
         $errors['apellidos'] = 'Los apellidos no son válidos.';
     }
 
-    // Validar la imagen
     if(isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
-        // Obtener la información del archivo subido
+        // Obtener información del archivo subido
         $imagen_name = $_FILES['imagen']['name']; 
         $imagen_tmp = $_FILES['imagen']['tmp_name']; 
         $imagen_size = $_FILES['imagen']['size']; 
         $imagen_type = $_FILES['imagen']['type']; 
 
-        // Mover el archivo cargado a la ruta
+        // Mover archivo cargado a la ruta
         $upload_directory = '../assets/img/profiles/'; 
         $ruta_imagen = $upload_directory . $imagen_name; 
 
-        // Mover el archivo temporal a la ruta
+        // Mover archivo temporal a la ruta
         if(move_uploaded_file($imagen_tmp, $ruta_imagen)) {
-            // La imagen se ha subido correctamente
             $imagen_valido = true;
         } else {
-            // Error al mover el archivo
             $errors['imagen'] = 'Error al subir la imagen.';
             $imagen_valido = false;
         }
     } else {
-        // No se ha subido ningún archivo
         $errors['imagen'] = 'Por favor, selecciona una imagen.';
         $imagen_valido = false;
     }
@@ -125,7 +121,6 @@ if(isset($_POST)) {
 
     // Validar datos del formulario y comprobar si hay errores
     if (count($errors) == 0) {
-        // Consulta SQL
         $sql = "INSERT INTO empleados (dni, contraseña, email, nombre, apellidos, imagen, id_rol, fecha_nacimiento, fecha_inicio, sueldo) 
         VALUES ('$dni', '$contraseña_encriptada', '$email', '$nombre', '$apellidos', '$ruta_imagen', '$id_rol', '$fecha_nacimiento', '$fecha_inicio', '$sueldo')";
 

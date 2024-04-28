@@ -10,22 +10,18 @@
         $id_rol = $_POST['id_rol'];
         $nombre_rol = $_POST['nombre_rol'];
 
-        // Actualizar el nombre del rol
+        // Actualizar nombre del rol
         $query = "UPDATE roles SET nombre_rol = '$nombre_rol' WHERE id_rol = $id_rol";
 
         $result = mysqli_query($db, $query);
 
         if ($result) {
-            // La actualización fue exitosa ALERTA
-
             header("Location: ../modules/roles.php");
             exit(); 
         } else {
-            // Hubo un error en la actualización ALERTA
             echo "Error al actualizar el rol.";
         }
     } else {
-        // ID de rol no válido
         echo "ID de rol inválido.";
     }
 ?>

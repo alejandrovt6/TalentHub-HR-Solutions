@@ -7,20 +7,20 @@
         exit();
     }
 
-    // Obtener el DNI del empleado autenticado
+    // Obtener DNI
     $dni = $_SESSION['dni'];
 
-    // Obtener la información del empleado
+    // Obtener información del empleado
     $query = "SELECT * FROM empleados WHERE dni = ?";
     $stmt = mysqli_prepare($db, $query);
 
     // Vincular parámetros
     mysqli_stmt_bind_param($stmt, "s", $dni);
 
-    // Ejecutar la consulta
+    // Ejecutar consulta
     mysqli_stmt_execute($stmt);
 
-    // Obtener el resultado
+    // Obtener resultado
     $result = mysqli_stmt_get_result($stmt);
 
     // Verificar si se encontraron resultados
@@ -42,10 +42,6 @@
     <div class="container">
         <form action="update-data.php" method="post">
             <input type="hidden" name="dni" value="<?php echo $empleado['dni']; ?>">
-            <!-- <div class="form-group">
-                <label for="dni">DNI:</label>
-                <input type="text" id="dni" name="dni" value="<?php echo $empleado['dni']; ?>">
-            </div> -->
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" value="<?php echo $empleado['nombre']; ?>">
@@ -60,7 +56,6 @@
             </div>
             <div class="form-group">
                 <label for="contraseña">Contraseña:</label>
-                <!-- <input type="text" id="contraseña" name="contraseña" value="<?php // echo $empleado['contraseña']; ?>"> -->
                 <input type="text" id="contraseña" name="contraseña" value="">
             </div>
 

@@ -7,16 +7,16 @@
         exit();
     }
 
-    // Verificar si se recibieron los datos del formulario
+    // Verificar si se recibieron datos del formulario
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Recibir los datos del formulario
+        // Recibir datos del formulario
         $dni = $_POST['dni'];
         $nombre = $_POST['nombre'];
         $apellidos = $_POST['apellidos'];
         $email = $_POST['email'];
         $contraseña = $_POST['contraseña'];
         
-        // Actualizar los datos del empleado
+        // Actualizar datos del empleado
         $query = "UPDATE empleados SET nombre = ?, apellidos = ?, email = ?";
         $params = array($nombre, $apellidos, $email);
 
@@ -32,17 +32,16 @@
         $query .= " WHERE dni = ?";
         $params[] = $dni;
 
-        // Preparar la consulta
+        // Preparar consulta
         $stmt = mysqli_prepare($db, $query);
 
-        // Verificar si la preparación de la consulta fue exitosa
+        // Verificar la preparación de la consulta
         if ($stmt) {
-            // Vincular los parámetros
+            // Vincular parámetros
             mysqli_stmt_bind_param($stmt, str_repeat('s', count($params)), ...$params);
 
-            // Ejecutar la consulta
+            // Ejecutar consulta
             if (mysqli_stmt_execute($stmt)) {
-                // Redirigir al empleado de vuelta a la página de datos con un mensaje de éxito
                 header("Location: ../modules/data.php?success=1");
                 exit();
             } else {

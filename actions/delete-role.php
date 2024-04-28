@@ -20,12 +20,11 @@
         $id_rol = $_GET['id_rol'];
 
         if (isset($_POST['confirm']) && $_POST['confirm'] == 'yes') {
-            // Eliminar el rol
+            // Eliminar rol
             $query = "DELETE FROM roles WHERE id_rol = '$id_rol'";
             $result = mysqli_query($db, $query);
 
             if($result) {
-                // ALERTA
                 header("Location: ../modules/roles.php");
                 exit(); 
             }

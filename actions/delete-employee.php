@@ -20,16 +20,15 @@
         $dni = $_GET['dni'];
 
         if (isset($_POST['confirm']) && $_POST['confirm'] == 'yes') {
-            // Eliminar el empleado
+            // Eliminar empleado
             $query = "DELETE FROM empleados WHERE dni = '$dni'";
             $result = mysqli_query($db, $query);
 
             if($result) {
-                // ALERTA
                 header("Location: ../modules/employees.php");
                 exit(); 
             } else {
-                echo "Hubo un error al eliminar el empleado."; // ALERTA
+                echo "Hubo un error al eliminar el empleado.";
             }
         }
 

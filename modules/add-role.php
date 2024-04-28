@@ -1,4 +1,13 @@
-<?php include_once("../includes/header-admin.php"); ?>
+<?php include_once("../includes/header-admin.php"); 
+
+require_once '../includes/connection.php';
+
+if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated'] || $_SESSION['rol_id'] != 1) {
+    header("Location: ../index.php");
+    exit();
+}
+
+?>
 
 <main>
     <h1>Añadir nuevo rol</h1>

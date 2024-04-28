@@ -3,11 +3,11 @@
 
         require_once '../includes/connection.php';
 
-        if(!isset($_SESSION)) { // QUITAR
+        if(!isset($_SESSION)) {
         session_start();
         }
 
-        // Traer los datos del form y escapar datos
+        // Traer datos del form y escapar datos
         $dni = isset($_POST['dni']) ? mysqli_real_escape_string($db, $_POST['dni']) : false;
         $email = isset($_POST['email']) ? mysqli_real_escape_string($db, $_POST['email']) : false;
         $nombre = isset($_POST['nombre']) ? mysqli_real_escape_string($db, $_POST['nombre']) : false;
@@ -50,29 +50,26 @@
             $errors['apellidos'] = 'Los apellidos no son válidos.';
         }
 
-        // Validar la imagen
+        // Validar imagen
         if(isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
-            // Obtener la información del archivo subido
+            // Obtener información del archivo subido
             $imagen_name = $_FILES['imagen']['name']; 
             $imagen_tmp = $_FILES['imagen']['tmp_name']; 
             $imagen_size = $_FILES['imagen']['size']; 
             $imagen_type = $_FILES['imagen']['type']; 
 
-            // Mover el archivo cargado a la ruta
+            // Mover archivo cargado a la ruta
             $upload_directory = '../assets/img/profiles/'; 
             $ruta_imagen = $upload_directory . $imagen_name; 
 
-            // Mover el archivo temporal a la ruta
+            // Mover archivo temporal a la ruta
             if(move_uploaded_file($imagen_tmp, $ruta_imagen)) {
-                // La imagen se ha subido correctamente
                 $imagen_valido = true;
             } else {
-                // Error al mover el archivo
                 $errors['imagen'] = 'Error al subir la imagen.';
                 $imagen_valido = false;
             }
         } else {
-            // No se ha subido ningún archivo
             $errors['imagen'] = 'Por favor, selecciona una imagen.';
             $imagen_valido = false;
         }
@@ -141,7 +138,7 @@
                 $_SESSION['empleado']['fecha_inicio'] = $fecha_inicio;
                 $_SESSION['empleado']['sueldo'] = $sueldo;
                 $_SESSION['completed'] = '¡Empleado editado exitosamente!';
-                header("Location: ../modules/employees.php"); // Redirigirá cuando se edite el usuario
+                header("Location: ../modules/employees.php"); 
                 exit();
             } else {
                 $_SESSION['errors']['general'] = 'Error al editar el empleado. Por favor, inténtalo de nuevo.';

@@ -12,7 +12,7 @@ if(isset($_POST['dni'], $_POST['contraseña'])) {
     
     if($login && mysqli_num_rows($login) == 1) {
         $empleado = mysqli_fetch_assoc($login);
-        // Verificar la contraseña
+        // Verificar contraseña
         if (password_verify($contraseña, $empleado['contraseña'])) {
             session_start();
             $_SESSION['authenticated'] = true; // Indicar que el usuario está autenticado
