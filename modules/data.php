@@ -7,17 +7,17 @@
         exit();
     }
 
-    // Obtener el DNI del empleado autenticado
+    // Obtener DNI
     $dni = $_SESSION['dni'];
 
-    // Obtener la información del empleado
+    // Obtener información del empleado
     $query_empleado = "SELECT * FROM empleados WHERE dni = ?";
     $stmt_empleado = mysqli_prepare($db, $query_empleado);
 
     // Vincular parámetros
     mysqli_stmt_bind_param($stmt_empleado, "s", $dni);
 
-    // Ejecutar la consulta
+    // Ejecutar consulta
     mysqli_stmt_execute($stmt_empleado);
 
     // Obtener el resultado
@@ -35,10 +35,10 @@
         // Vincular parámetros
         mysqli_stmt_bind_param($stmt_rol, "i", $rol_id);
 
-        // Ejecutar la consulta
+        // Ejecutar consulta
         mysqli_stmt_execute($stmt_rol);
 
-        // Obtener el resultado
+        // Obtener resultado
         $result_rol = mysqli_stmt_get_result($stmt_rol);
 
         // Verificar si se encontraron resultados

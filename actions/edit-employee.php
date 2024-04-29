@@ -44,7 +44,8 @@
                 $nombre = $empleado['nombre'];
                 $apellidos = $empleado['apellidos'];
                 $id_rol = $empleado['id_rol']; 
-                $imagen = isset($empleado['imagen']) ? $empleado['imagen'] : ''; 
+                $imagen = isset($empleado['imagen']) ? $empleado['imagen'] : '';
+                // $imagen = $empleado['imagen'];
                 $fecha_nacimiento = $empleado['fecha_nacimiento'];
                 $fecha_inicio = $empleado['fecha_inicio'];
                 $sueldo = $empleado['sueldo'];
@@ -60,7 +61,8 @@
     <main>
         <h1>Editar empleado</h1>
         <div class="container">
-        <form action="./new-employee.php" method="POST" enctype="multipart/form-data">
+        <!-- <form action="./new-employee.php" method="POST" enctype="multipart/form-data">  -->
+        <form action="./update-employee.php" method="POST" enctype="multipart/form-data"> 
             <div class="form-group">
                 <label for="dni">DNI:</label>
                 <input type="text" id="dni" name="dni" value="<?php echo $dni; ?>" required>
@@ -85,7 +87,7 @@
                 <label for="id_rol">Rol:</label>
                 <select id="id_rol" name="id_rol" value="<?php echo $id_rol; ?>" required> 
                     <?php
-                        require_once '../includes/connection.php'; // ????
+                        require_once '../includes/connection.php'; 
 
                         $query = "SELECT id_rol, nombre_rol FROM roles";
                         $result = mysqli_query($db, $query);
