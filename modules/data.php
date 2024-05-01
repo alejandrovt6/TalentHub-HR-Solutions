@@ -65,10 +65,6 @@
     <a href="../actions/edit-data.php" class="btn btn-edit-data">Editar mis datos</a>
     <div class="container">
         <form action="update-data.php" method="post">
-            <!-- <div class="form-group">
-                <label for="imagen">Imagen:</label>
-                <input type="file" id="imagen" name="imagen" value="<?php echo $empleado['imagen']; ?>" readonly>
-            </div> -->
             <div class="form-group">
                 <label for="dni">DNI:</label>
                 <input type="text" id="dni" name="dni" value="<?php echo $empleado['dni']; ?>" readonly>

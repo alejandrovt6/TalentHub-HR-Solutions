@@ -41,10 +41,8 @@
 
                         echo '<thead>';
                             echo '<tr>';
-                                // echo '<th>Id rol</th>';
                                 echo '<th>Nombre</th>';
                                 echo '<th>Nº de empleados</th>';
-                                // echo '<th>Descargar listado</th>';
                                 echo '<th colspan="2">Administrar</th>';
 
                             echo '</tr>';
@@ -86,7 +84,6 @@
                                 echo '<td>' . $total_empleados . '</td>';
                                 echo '<td></td>';
                                 echo '<td></td>';
-                                // echo '<td></td>'; 
                             echo '</tr>';
                         }
 

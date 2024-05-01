@@ -22,7 +22,6 @@
         $empleado = mysqli_fetch_assoc($result);
         $nombre = $empleado['nombre'] . ' ' . $empleado['apellidos'];
     } else {
-        // Si no se puede obtener el nombre del empleado, usar un valor predeterminado
         $nombre = 'Invitado';
     }
 ?>
