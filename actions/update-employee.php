@@ -1,11 +1,33 @@
 <?php
+    session_start();
+
+    echo "<pre>";
+    print_r($_SESSION['empleado']);
+    echo "</pre>";
+
+    echo "<pre>";
+    var_dump($_SESSION['empleado']);
+    echo "</pre>";
+?>
+
+
+<?php
     if(isset($_POST)) {
 
         require_once '../includes/connection.php';
 
-        if(!isset($_SESSION)) {
-        session_start();
+        // Verificar si $_SESSION está definido
+        if (!isset($_SESSION)) {
+            session_start();
         }
+
+        // Verificar si $_SESSION['empleado'] está definido y no está vacío
+        if (!isset($_SESSION['empleado']) || empty($_SESSION['empleado'])) {
+            $_SESSION['errors']['general'] = 'Error: Empleado no definido o vacío.';
+            // Redirigir
+            exit(); 
+        }
+
 
         // Traer datos del form y escapar datos
         $dni = isset($_POST['dni']) ? mysqli_real_escape_string($db, $_POST['dni']) : false;
@@ -114,15 +136,15 @@
             // Consulta SQL
             $empleado = $_SESSION['empleado'];
             $sql = "UPDATE empleados SET " . 
-                "dni = '$dni'," . 
-                "email = '$email'" . 
-                "nombre = '$nombre'," . 
-                "apellidos = '$apellidos'," . 
-                "imagen = '$imagen'," . 
-                "id_rol = '$id_rol'," . 
-                "fecha_nacimiento = '$fecha_nacimiento'," . 
-                "fecha_inicio = '$fecha_inicio'," . 
-                "sueldo = '$sueldo'," . 
+                "dni = '$dni', " . 
+                "email = '$email', " . 
+                "nombre = '$nombre', " . 
+                "apellidos = '$apellidos', " . 
+                "imagen = '$imagen', " . 
+                "id_rol = '$id_rol', " . 
+                "fecha_nacimiento = '$fecha_nacimiento', " . 
+                "fecha_inicio = '$fecha_inicio', " . 
+                "sueldo = '$sueldo' " . 
                 "WHERE dni = " . $empleado['dni'];
 
             $save = mysqli_query($db, $sql);
@@ -137,16 +159,18 @@
                 $_SESSION['empleado']['fecha_nacimiento'] = $fecha_nacimiento;
                 $_SESSION['empleado']['fecha_inicio'] = $fecha_inicio;
                 $_SESSION['empleado']['sueldo'] = $sueldo;
+                // Establecer mensaje de éxito
                 $_SESSION['completed'] = '¡Empleado editado exitosamente!';
-                header("Location: ../modules/employees.php"); 
-                exit();
-            } else {
-                $_SESSION['errors']['general'] = 'Error al editar el empleado. Por favor, inténtalo de nuevo.';
-            }
-        } else {
-            // Si hay errores de validación, se guardan en la sesión
-            $_SESSION['errors'] = $errors;
-        }
-    }
 
-header('Location: ../modules/employees.php');
+                // Redirigir al usuario de vuelta a la página de empleados
+                header("Location: ../modules/employees.php"); 
+                exit(); // Salir del script después de la redirección
+                } else {
+                // Si hubo algún error al editar, guardar el mensaje de error en la sesión
+                $_SESSION['errors']['general'] = 'Error al editar el empleado. Por favor, inténtalo de nuevo.';
+                }
+            }
+        }
+
+?>
+
