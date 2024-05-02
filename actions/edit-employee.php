@@ -4,7 +4,7 @@
 
     // Verificar si el empleado está autenticado
     if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
-        header("Location: ../index.php"); // Si no está autenticado
+        header("Location: ../index.php"); 
         exit();
     }
 
@@ -19,14 +19,24 @@
         $dni = $_GET['dni'];
 
         // Obtener información del empleado con el DNI
-        $query = "SELECT * FROM empleados WHERE dni = '$dni'";
-        $result = mysqli_query($db, $query);
+        $query = "SELECT * FROM empleados WHERE dni = ?";
+        $stmt = mysqli_prepare($db, $query);
 
+        // Vincular parámetros
+        mysqli_stmt_bind_param($stmt, "s", $dni);
+
+        // Ejecutar consulta
+        mysqli_stmt_execute($stmt);
+
+        // Obtener resultado
+        $result = mysqli_stmt_get_result($stmt);
+
+        // Verificar si se encontraron resultados
         if ($result && mysqli_num_rows($result) > 0) {
-            $employee = mysqli_fetch_assoc($result);
+            $empleado = mysqli_fetch_assoc($result);
 
             // Establecer la sesión $_SESSION['empleado']
-            $_SESSION['empleado'] = $employee;
+            $_SESSION['empleado'] = $empleado;
         }
     }
 ?>
