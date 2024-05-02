@@ -98,7 +98,7 @@
             </div>
             <div class="form-group">
                 <label for="sueldo">Sueldo:</label>
-                <input type="text" id="sueldo" name="sueldo" value="<?php echo number_format($_SESSION['empleado']['sueldo'], 0, ',', '.'); ?>" required>
+                <input type="text" id="sueldo" name="sueldo" value="<?php echo $_SESSION['empleado']['sueldo']; ?>" required>
             </div>
             <button class="btn add-employee-btn" type="submit">Editar empleado</button>   
         </form>

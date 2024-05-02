@@ -8,11 +8,10 @@
         exit();
     }
 
-    // Verificar si se recibieron datos del formulario
+    // Verificar si se recibieron datos
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Recibir datos del formulario
+        // Recibir datos
         $dni = $_POST['dni'];
-        // Recibir el resto de datos del formulario
 
         // Actualizar datos del empleado
         $query = "UPDATE empleados SET nombre = ?, apellidos = ?, email = ?, fecha_inicio = ?, fecha_nacimiento = ?, id_rol = ?, sueldo = ? WHERE dni = ?";
@@ -42,4 +41,3 @@
         exit();
     }
 ?>
-
