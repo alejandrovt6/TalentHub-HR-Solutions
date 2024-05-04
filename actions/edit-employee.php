@@ -65,7 +65,7 @@
             </div>
             <div class="form-group">
                 <label for="imagen">Imagen:</label>
-                <input type="file" id="imagen" name="imagen" accept="image/*">
+                <input type="file" id="imagen" name="imagen" accept="image/* ">
             </div>
             <div class="form-group">
                 <label for="id_rol">Rol:</label>

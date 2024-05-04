@@ -15,9 +15,9 @@ if(isset($_POST['dni'], $_POST['contraseña'])) {
         // Verificar contraseña
         if (password_verify($contraseña, $empleado['contraseña'])) {
             session_start();
-            $_SESSION['authenticated'] = true; // Indicar que el usuario está autenticado
+            $_SESSION['authenticated'] = true; 
             $_SESSION['dni'] = $empleado['dni'];
-            $_SESSION['rol_id'] = $empleado['id_rol']; // Guardar el ID de rol en la sesión
+            $_SESSION['rol_id'] = $empleado['id_rol']; 
             // Redirigir según el rol
             if ($empleado['id_rol'] == 1) {
                 header("Location: ../modules/admin.php");
@@ -26,7 +26,10 @@ if(isset($_POST['dni'], $_POST['contraseña'])) {
             }
             exit(); 
         } else {
-            echo "Contraseña incorrecta";
+            // echo "Contraseña incorrecta";
+            echo '<div class="alert alert-danger" role="alert">
+            Contraseña incorrecta.
+            </div>';
         }
     } else {
         echo "Usuario no encontrado";
