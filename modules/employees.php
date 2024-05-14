@@ -62,8 +62,12 @@
 
                                 // Obtener nombre del rol
                                 $rol_id = $row['id_rol'];
-                                $rol_query = "SELECT nombre_rol FROM roles WHERE id_rol = $rol_id";
-                                $rol_result = mysqli_query($db, $rol_query);
+                                $rol_query = "SELECT nombre_rol FROM roles WHERE id_rol = ?";
+                                
+                                $stmt = mysqli_prepare($db, $rol_query);
+                                mysqli_stmt_bind_param($stmt, "i", $rol_id);
+                                mysqli_stmt_execute($stmt);
+                                $rol_result = mysqli_stmt_get_result($stmt);
                                 $rol_nombre = mysqli_fetch_assoc($rol_result)['nombre_rol'];
 
                                 echo '<td>' . $rol_nombre . '</td>';
